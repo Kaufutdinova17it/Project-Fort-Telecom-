@@ -1,0 +1,77 @@
+﻿<UserControl
+    x:Class="OnboardingApp.Views.EmployersView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:local="clr-namespace:OnboardingApp.Views"
+    xmlns:av="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"      
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:s="https://github.com/canton7/Stylet"
+    Loaded="UserControl_Loaded">
+
+    <ScrollViewer>
+        <Grid Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Поле для поиска по должности помещено в верхнюю правую часть -->
+            <StackPanel Orientation="Vertical" Margin="10" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <TextBox Width="178" 
+                         Text="{Binding PositionSearchText, UpdateSourceTrigger=PropertyChanged}" 
+                         hc:InfoElement.Placeholder="Поиск по должности..." 
+                         FontSize="{DynamicResource {x:Static SystemFonts.MessageFontSizeKey}}"
+                         Background="White" Foreground="Black"
+                         CaretBrush="Black"/>
+                <!-- Установлен цвет курсора на черный -->
+                <Button Content="Назад в меню"
+                        Command="{s:Action GoToMainMenuCommand}" 
+                        HorizontalAlignment="Stretch" Margin="5"
+                        Background="White" Foreground="Black"/>
+            </StackPanel>
+
+            <DataGrid ItemsSource="{Binding FilteredEmployees}" x:Name="List" FontSize="{DynamicResource {x:Static SystemFonts.MessageFontSizeKey}}" FontWeight="Bold" Margin="10" AutoGenerateColumns="False" 
+                      SelectionChanged="List_SelectionChanged" Grid.Row="0" Grid.Column="0"
+                      Background="White" Foreground="Black">
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Setter Property="BorderBrush" Value="LightGray"/>
+                    </Style>
+                </DataGrid.CellStyle>
+
+                <DataGrid.Resources>
+                    <!-- Стиль для ячеек -->
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="Foreground" Value="Black"/>
+                    </Style>
+                    <!-- Стиль для строк -->
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="Foreground" Value="Black"/>
+                    </Style>
+                    <!-- Стиль для заголовков столбцов -->
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="Foreground" Value="Black"/>
+                    </Style>
+                </DataGrid.Resources>
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Text1}" Header="Должность" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Text2}" Header="ФИО" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Text3}" Header="Отдел" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

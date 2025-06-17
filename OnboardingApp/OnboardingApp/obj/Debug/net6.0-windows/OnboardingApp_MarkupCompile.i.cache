@@ -1,0 +1,20 @@
+﻿OnboardingApp
+1.0.0.0
+
+winexe
+C#
+.cs
+C:\Users\Полина\Desktop\Новая папка (2)\OdDs53\OnboardingApp\OnboardingApp\obj\Debug\net6.0-windows\
+OnboardingApp
+none
+false
+TRACE;DEBUG;NET;NET6_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+C:\Users\Полина\Desktop\Новая папка (2)\OdDs53\OnboardingApp\OnboardingApp\App.xaml
+61036312252
+16178025703
+29-24587455
+2161830546168
+Views\EmployersView.xaml;Views\KnowlegeBaseView.xaml;Views\MainMenuView.xaml;Views\OfficeMapView.xaml;Views\RootView.xaml;Views\TasksView.xaml;
+
+True
+
